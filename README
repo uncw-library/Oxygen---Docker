@@ -1,0 +1,18 @@
+1. Deploy this repository to a Docker container
+2. Access http://yourcontainer/oxygen-license-servlet/
+3. docker exec -ti /bin/bash into the container
+4. Go into the installation folder (apache-tomcat-7...)
+5. Go to the conf folder
+6. Edit tomcat-users.xml
+
+<tomcat-users xmlns="http://tomcat.apache.org/xml"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://tomcat.apache.org/xml tomcat-users.xsd"
+              version="1.0">
+  <!-- ... other user and role definitions ... -->
+  <role rolename="user"/>
+  <role rolename="admin"/>
+  <role rolename="manager-gui"/>
+  <user username="John" password="user_pass" roles="user"/>
+  <user username="Mary" password="admin_pass" roles="admin,manager-gui"/>
+</tomcat-users>
